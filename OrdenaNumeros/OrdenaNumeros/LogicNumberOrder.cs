@@ -8,13 +8,15 @@ using System.Windows.Forms;
 
 namespace OrdenaNumeros
 {
-    class LogicNumberOrder
+    public class LogicNumberOrder
     {
         //Atributos propios del juego
         private int[,] matrizValores;
         private Button[,] matrizBotones;
         private int posicionFila, posicionColumna;
         int four = 4;
+
+
 
         public LogicNumberOrder()
         {
@@ -80,6 +82,8 @@ namespace OrdenaNumeros
 
                     matrizValores[i, j] = matrizValores[posicionHorizontal, posicionVertical];
                     matrizValores[posicionHorizontal, posicionVertical] = valorTemporal;
+
+
                 }
             }
         }
@@ -306,7 +310,40 @@ namespace OrdenaNumeros
                 for (int j = 0; j < totalColumnas; j++)
                     matrizBotones[i, j].BackColor = Color.LightGray;
         }
+        public string EligePersonaje(int number)
+        {
+            string personajeElegido = "";
+            switch (number)
+            {
+                case 1:
+                    personajeElegido = "Rolo";
+                    break;
+
+                case 2:
+                    personajeElegido = "Jairo";
+                    break;
+                case 3:
+                    personajeElegido = "Sami";
+                    break;
+                case 4:
+                    personajeElegido = "Alberto";
+                    break;
+
+            }
+            return personajeElegido;
+
+
+        }
+
+        public bool InicioDeSesionCorrecta(string usuario, string contraseña)
+        {
+            bool iniciado = false;
+
+            if (usuario != "pepefutbol2010" && contraseña != "bienvenidosaturbo")
+                iniciado = false;
+            else
+                iniciado = true;
+            return iniciado;
+        }
     }
 }
-
-    
